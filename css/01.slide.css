@@ -1,0 +1,28 @@
+/**************** global init ****************/
+.wrapper {max-width: 720px; margin: 50px auto; position: relative; border-top: 2px solid red; border-bottom: 2px solid red;}
+
+/********************** wrapper1 *********************/
+.wrapper1 .slide-wrap {position: relative; width: 700%; display: flex;}
+.wrapper1 .slide-wrap .slide {width: 14.2857%; flex-shrink: 0;}
+
+
+/******************* 반응형 ******************/
+@media (max-width: 1399px) {
+	
+}
+
+@media (max-width: 1199px) {
+	
+}
+
+@media (max-width: 991px) {
+	
+}
+
+@media (max-width: 767px) {
+	
+}
+
+@media (max-width: 575px) {
+	
+}

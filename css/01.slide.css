@@ -1,5 +1,12 @@
 /**************** global init ****************/
 .wrapper {max-width: 720px; margin: 50px auto; position: relative; border-top: 2px solid red; border-bottom: 2px solid red;}
+.pager-wrap {text-align: center; position: absolute; width: 100%; bottom: .5em;}
+.pager-wrap .pager {color: #666; cursor: pointer;}
+.pager-wrap .pager.active {color: #ec670f;}
+.bt-angle {font-size: 2em; color: #fff; position: absolute; top: 50%; transform: translateY(-50%); cursor: pointer;}
+.bt-angle:hover {color: #ffc1b2;}
+.bt-angle.bt-prev {left: .5em;}
+.bt-angle.bt-next {right: .5em;}
 
 /********************** wrapper1 *********************/
 .wrapper1 .slide-wrap {position: relative; width: 700%; display: flex;}

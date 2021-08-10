@@ -1,0 +1,17 @@
+/* font-weight: normal, bold, bolder, light, lighter */
+/* font-weight: 100, 200, 300, 400, 800 */
+html, body, h1, h2, h3, h4, h5, h6, p, div, form, input, textarea, table, td, th, header, section, aside, footer, article, nav, ul, ol, li {margin: 0; padding: 0; box-sizing: border-box; line-height: 1; font-size: inherit; font-weight: inherit;}
+ul, ol {list-style: none;}
+h1, h2, h3, h4, h5, h6 {font-weight: inherit;}
+img {vertical-align: bottom;}
+table {border-spacing: 0; border-collapse: collapse;}
+input, input:focus {outline: none;}
+
+a {color: inherit; text-decoration: none;}
+
+.clear::after {display: block; content: ''; clear: both;}
+
+.w100 {width: 100%;}
+.mw100 {max-width: 100%;}
+
+.wrapper {border-color: blue;}

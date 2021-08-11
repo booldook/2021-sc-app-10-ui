@@ -24,7 +24,7 @@ function Slide(_parent, _opt) {
 		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
+		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* fadeInit *******/
@@ -32,7 +32,7 @@ function Slide(_parent, _opt) {
 		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
+		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* vertInit *******/
@@ -40,18 +40,18 @@ function Slide(_parent, _opt) {
 		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
+		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* onEnter *******/
-	function onEnter() {
-		clearInterval(interval);
-	}
+	var onEnter = function () {
+		if(this.autoPlay) clearInterval(this.interval);
+	}.bind(this);
 
 	/******* onLeave *******/
-	function onLeave() {
-		interval = setInterval(this.onNext, this.autoPlaySpeed);
-	}
+	var onLeave = function () {
+		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
+	}.bind(this);
 	
 	/******* init *******/
 	if(this.effect === 'fadeType') {

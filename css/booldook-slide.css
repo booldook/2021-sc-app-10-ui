@@ -1,4 +1,4 @@
-.slide-wrapper {position: relative; overflow: visible; border-top: 2px solid red; border-bottom: 2px solid red;}
+.slide-wrapper {position: relative; overflow: hidden; border-top: 2px solid red; border-bottom: 2px solid red;}
 .slide-wrapper .slide-wrap {position: relative; z-index: 1;}
 .slide-wrapper .slide-wrap.horizontalType {display: flex;}
 .slide-wrapper .slide-wrap.verticalType {position: absolute; top: 0; left: 0;}

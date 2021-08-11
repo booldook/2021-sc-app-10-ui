@@ -6,6 +6,9 @@ var slide = new Slide('#slide1', {
 		prev: '.bt-prev',
 		next: '.bt-next',
 	},
+	pagination: {
+		el: '.pager'
+	},
 	speed: 500
 });
 
@@ -22,3 +25,5 @@ var slide3 = new Slide('#slide3', {
 	autoPlaySpeed: 3000,
 	speed: 1000
 });
+
+

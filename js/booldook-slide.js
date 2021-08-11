@@ -11,18 +11,19 @@ function Slide(_parent, _opt) {
 	this.speed = Number(opt.speed) || 500;
 	this.autoPlay = opt.autoPlay === false ? false : true;
 	this.autoPlaySpeed = Number(opt.autoPlaySpeed) || 3000;
+	this.useNavigation = opt.navigation && opt.navigation.prev && opt.navigation.next ? true : false;
+
 	if(this.effect.toLowerCase() !== 'horizontal' && this.effect.toLowerCase() !== 'vertical' && this.effect.toLowerCase() !== 'fade') {
 		this.effect = 'horizontal';
 	}
 	this.effect += 'Type';
 	this.wrap.addClass(this.effect);
 
-
 	/******* horiInit *******/
 	var horiInit = function () {
 		this.last = this.slide.length - 1;
 
-		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
+		this.wrapper.mouseenter(onEnter).mouseleave(onLeave);
 		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
@@ -30,7 +31,7 @@ function Slide(_parent, _opt) {
 	var fadeInit = function () {
 		this.last = this.slide.length - 1;
 
-		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
+		this.wrapper.mouseenter(onEnter).mouseleave(onLeave);
 		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
@@ -38,7 +39,7 @@ function Slide(_parent, _opt) {
 	var vertInit = function () {
 		this.last = this.slide.length - 1;
 
-		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
+		this.wrapper.mouseenter(onEnter).mouseleave(onLeave);
 		if(this.autoPlay) this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
@@ -69,6 +70,13 @@ function Slide(_parent, _opt) {
 		this.slide.eq(0).clone().appendTo(this.wrap);
 		this.slide = this.wrap.find('.slide');
 		vertInit();
+	}
+	/******* navigation *******/
+	if(this.useNavigation) {
+		this.prev = this.wrapper.find(opt.navigation.prev);
+		this.next = this.wrapper.find(opt.navigation.next);
+		this.prev.click(this.onPrev.bind(this));
+		this.next.click(this.onNext.bind(this));
 	}
 }
 
@@ -106,7 +114,17 @@ Slide.prototype.onNext = function() {
 }
 
 Slide.prototype.onPrev = function() {
-
+	if(this.effect === 'fadeType') {
+		this.idx = this.idx === 0 ? this.last : this.idx - 1;
+	}
+	else {
+		if(this.idx === 0) {
+			this.wrap.css('left', -this.last * 100 + '%');
+			this.idx = this.last;
+		}
+		this.idx--;
+	}
+	this.ani();
 }
 
 Slide.prototype.onPager = function() {

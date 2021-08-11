@@ -12,3 +12,6 @@
 .slide-wrapper .bt-navigation.bt-next {right: 0;}
 .slide-wrapper .bt-navigation.bt-prev::after {content: '〈';}
 .slide-wrapper .bt-navigation.bt-next::after {content: '〉';}
+.slide-wrapper .pager-navigation {position: absolute; z-index: 2; bottom: .5em; display: flex; justify-content: center; left: 50%; transform: translateX(-50%);}
+.slide-wrapper .pager-navigation > div {font-size: 2em; color: #fff; text-shadow: 0 0 .25em rgba(0, 0, 0, 0.5); opacity: .5; cursor: pointer;}
+.slide-wrapper .pager-navigation > div.active {opacity: 1; color: #fb3a21;}

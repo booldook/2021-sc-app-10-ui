@@ -5,3 +5,10 @@
 .slide-wrapper .slide-wrap.fadeType {}
 .slide-wrapper .slide-wrap.fadeType .slide {position: absolute; top: 0; left: 0; width: 100%;}
 .slide-wrapper .slide-wrap.fadeType .slide:first-child {z-index: 1;}
+.slide-wrapper .bt-navigation {position: absolute; top: 50%; transform: translateY(-50%); z-index: 2; opacity: .3; transition: all .5s; cursor: pointer;}
+.slide-wrapper .bt-navigation:hover {opacity: 1;}
+.slide-wrapper .bt-navigation::after {display: block; color: #fff; text-shadow: 0 0 .125em rgba(0, 0, 0, 0.5); font-size: 5em;}
+.slide-wrapper .bt-navigation.bt-prev {left: 0;}
+.slide-wrapper .bt-navigation.bt-next {right: 0;}
+.slide-wrapper .bt-navigation.bt-prev::after {content: '〈';}
+.slide-wrapper .bt-navigation.bt-next::after {content: '〉';}

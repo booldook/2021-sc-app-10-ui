@@ -1,6 +1,5 @@
 function Slide(_parent, _opt) {
 	var opt = _opt || {};
-	var obj = this;
 	this.interval; 
 	this.last; 
 	this.idx = 0; 

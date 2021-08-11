@@ -122,7 +122,7 @@ Slide.prototype.onNext = function() {
 	}
 	else {
 		if(this.idx === this.last) {
-			this.wrap.css('left', 0);
+			this.wrap.css(this.effect === 'horizontalType' ? 'left' : 'top' , 0);
 			this.idx = 0;
 		}
 		this.idx++;
@@ -136,7 +136,7 @@ Slide.prototype.onPrev = function() {
 	}
 	else {
 		if(this.idx === 0) {
-			this.wrap.css('left', -this.last * 100 + '%');
+			this.wrap.css(this.effect === 'horizontalType' ? 'left' : 'top', -this.last * 100 + '%');
 			this.idx = this.last;
 		}
 		this.idx--;

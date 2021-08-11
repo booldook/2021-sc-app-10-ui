@@ -1,6 +1,10 @@
 function Slide(_parent, _opt) {
-	var interval, last, idx = 0, depth = 1;
 	var opt = _opt || {};
+	var obj = this;
+	this.interval; 
+	this.last; 
+	this.idx = 0; 
+	this.depth = 1;
 	this.wrapper = $(_parent);
 	this.wrap = this.wrapper.find('.slide-wrap');
 	this.slide = this.wrap.find('.slide');
@@ -17,45 +21,26 @@ function Slide(_parent, _opt) {
 
 	/******* horiInit *******/
 	var horiInit = function () {
-		last = this.slide.length - 1;
+		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		interval = setInterval(this.onNext, this.autoPlaySpeed);
+		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* fadeInit *******/
 	var fadeInit = function () {
-		last = this.slide.length - 1;
+		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		interval = setInterval(this.onNext, this.autoPlaySpeed);
+		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* vertInit *******/
 	var vertInit = function () {
-		last = this.slide.length - 1;
+		this.last = this.slide.length - 1;
 
 		this.wrap.mouseenter(onEnter).mouseleave(onLeave);
-		interval = setInterval(this.onNext, this.autoPlaySpeed);
-	}.bind(this);
-
-	/******* ani *******/
-	var ani = function () {
-		switch(this.effect) {
-			case 'horizontalType':
-				this.wrap.stop().animate({ 'left': -idx * 100 + '%' }, this.speed);
-
-				break;
-			case 'verticalType':
-				this.wrap.stop().animate({ 'top': -idx * 100 + '%' }, this.speed);
-
-				break;
-			case 'fadeType':
-				this.slide.eq(idx).css({ 'z-index': ++depth, 'opacity': 0 });
-				this.slide.eq(idx).stop().animate({'opacity': 1}, this.speed);
-
-				break;
-		}
+		this.interval = setInterval(this.onNext.bind(this), this.autoPlaySpeed);
 	}.bind(this);
 
 	/******* onEnter *******/
@@ -88,18 +73,37 @@ function Slide(_parent, _opt) {
 	}
 }
 
+Slide.prototype.ani = function () {
+	switch(this.effect) {
+		case 'horizontalType':
+			this.wrap.stop().animate({ 'left': -this.idx * 100 + '%' }, this.speed);
+
+			break;
+		case 'verticalType':
+			this.wrap.stop().animate({ 'top': -this.idx * 100 + '%' }, this.speed);
+
+			break;
+		case 'fadeType':
+			this.slide.eq(this.idx).css({ 'z-index': ++this.depth, 'opacity': 0 });
+			this.slide.eq(this.idx).stop().animate({'opacity': 1}, this.speed);
+
+			break;
+	}
+}
+
+
 Slide.prototype.onNext = function() {
 	if(this.effect === 'fadeType') {
-		idx = idx === last ? 0 : idx + 1;
+		this.idx = this.idx === this.last ? 0 : this.idx + 1;
 	}
 	else {
-		if(idx === last) {
+		if(this.idx === this.last) {
 			this.wrap.css('left', 0);
-			idx = 0;
+			this.idx = 0;
 		}
-		idx++;
+		this.idx++;
 	}
-	ani();
+	this.ani();
 }
 
 Slide.prototype.onPrev = function() {

@@ -14,6 +14,14 @@ function onScroll(e) {
 	// console.log(e);
 	// console.log(window.scrollY);			// js 
 	// console.log($(this).scrollTop());	// jQuery
+	// $().offset()
+	var guideTop = $(this).scrollTop() + $(this).outerHeight();
+	$('h1.title').each(function(v, i) {
+		if(guideTop - 200 > $(this).offset().top) $(this).addClass('active');
+	});
+	$('.box').each(function(v, i) {
+		if(guideTop - 200 > $(this).offset().top) $(this).addClass('active');
+	});
 }
 
 function onWheel(e) {
@@ -33,7 +41,7 @@ function onResize(e) {
 
 /*************** event init ***************/
 // window.addEventListener('scroll', onScroll);
-$(window).scroll(onScroll);
+$(window).scroll(onScroll).trigger('scroll');
 
 // window.addEventListener('wheel', onWheel);
 // $(window).on('wheel', onWheel);

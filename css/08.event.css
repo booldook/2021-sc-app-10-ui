@@ -1,0 +1,32 @@
+/**************** global init ****************/
+.wrapper {}
+section.page {height: 100vh; display: flex; justify-content: center; align-items: center;}
+section.page h1.title {font-size: 3em; color: #fff;}
+
+/**********************  *********************/
+section.page1 {background-color: #21477a;}
+section.page2 {background-color: #32b848;}
+section.page3 {background-color: #887a28;}
+section.page4 {background-color: #863b31;}
+section.page5 {background-color: #42238b;}
+
+/******************* 반응형 ******************/
+@media (max-width: 1399px) {
+	
+}
+
+@media (max-width: 1199px) {
+	
+}
+
+@media (max-width: 991px) {
+	
+}
+
+@media (max-width: 767px) {
+	
+}
+
+@media (max-width: 575px) {
+	
+}

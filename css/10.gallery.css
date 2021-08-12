@@ -1,5 +1,9 @@
 /**************** global init ****************/
-
+.wrapper {max-width: 720px; margin: 50px auto;}
+.img-wrap {margin-bottom: 1em; position: relative;}
+.img-wrap h2.name {padding: .5em 1em; background-color: black; color: #fff; font-size: 1.25em; top: 0; left: 0; position: absolute;}
+.thumb-wrap {display: flex; justify-content: center;}
+.thumb-wrap .thumb {width: 100px; margin: 0 .25em;}
 
 /**********************  *********************/
 

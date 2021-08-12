@@ -1,7 +1,12 @@
 /**************** global init ****************/
 .wrapper {}
-section.page {height: 100vh; display: flex; justify-content: center; align-items: center;}
+section.page {padding: 3em; height: 100vh; display: flex; flex-direction: column; justify-content: space-between;}
 section.page h1.title {font-size: 3em; color: #fff;}
+section.page .content-wrap {display: flex; width: 100%;}
+section.page .content-wrap .box {width: 31.3333%; height: 200px; margin: 1%;}
+section.page .content-wrap .box1 {background-color: darkturquoise;}
+section.page .content-wrap .box2 {background-color: crimson;}
+section.page .content-wrap .box3 {background-color: darkorange;}
 
 /**********************  *********************/
 section.page1 {background-color: #21477a;}

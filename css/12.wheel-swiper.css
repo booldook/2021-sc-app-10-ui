@@ -1,0 +1,38 @@
+/**************** global init ****************/
+.wrapper {width: 100%; overflow: hidden; height: 100vh;}
+section.page {padding: 3em; display: flex; flex-direction: column; justify-content: space-between;}
+section.page h1.title {font-size: 3em; color: #fff;}
+section.page .content-wrap {display: flex; width: 100%;}
+section.page .content-wrap .box {width: 31.3333%; height: 200px; margin: 1%;}
+section.page .content-wrap .box1 {background-color: darkturquoise;}
+section.page .content-wrap .box2 {background-color: crimson;}
+section.page .content-wrap .box3 {background-color: darkorange;}
+
+/********************** section *********************/
+section.page1 {background-color: #21477a;}
+section.page2 {background-color: #32b848;}
+section.page3 {background-color: #887a28;}
+section.page4 {background-color: #863b31;}
+section.page5 {background-color: #42238b;}
+
+
+/******************* 반응형 ******************/
+@media (max-width: 1399px) {
+	
+}
+
+@media (max-width: 1199px) {
+	
+}
+
+@media (max-width: 991px) {
+	
+}
+
+@media (max-width: 767px) {
+	
+}
+
+@media (max-width: 575px) {
+	
+}
